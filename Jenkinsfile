@@ -2,13 +2,13 @@ pipeline {
 
 agent {
     node {
-      label 'localnode_jenkinsagent'
+      label 'master'
     }
   }
   
       tools {
-        jdk 'jdk1.8'
-        maven 'mvn3.5.0'
+        jdk 'jdk.8.221'
+        maven 'mvn3.8.1'
     }
     
     stages {
