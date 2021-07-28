@@ -20,7 +20,7 @@ agent {
         }
       stage('SonarQube Scanner') {
          environment {
-            SCANNER_HOME = tool 'SonarQube'
+            SCANNER_HOME = tool 'SonarQube Scanner 4.6.2'
             ORGANIZATION = "maven_pipeline"
             PROJECT_NAME = "maven_pipeline"
           }
