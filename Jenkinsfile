@@ -24,11 +24,11 @@ agent {
             ORGANIZATION = "maven_pipeline"
             PROJECT_NAME = "maven_pipeline"
           }
-  steps {
-    withSonarQubeEnv('SonarQube') {
-        -Dsonar.java.binaries=build/classes/java/ \
-        -Dsonar.projectKey=$PROJECT_NAME \
-        -Dsonar.sources=.'''
+      steps {
+        withSonarQubeEnv('SonarQube') {
+            -Dsonar.java.binaries=build/classes/java/ \
+            -Dsonar.projectKey=$PROJECT_NAME \
+            -Dsonar.sources=.'''
     }
   }
 }
