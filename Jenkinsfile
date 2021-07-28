@@ -26,8 +26,7 @@ agent {
           }
       steps {
         withSonarQubeEnv('SonarQube') {
-            sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
-            #-Dsonar.java.binaries=build/classes/java/ \
+           sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
             -Dsonar.projectKey=$PROJECT_NAME \
             -Dsonar.sources=.'''
     }
