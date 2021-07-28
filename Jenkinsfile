@@ -7,8 +7,7 @@ agent {
   }
   
       tools {
-        jdk "Java 8.221"
-        maven "Maven 3.8.1"
+          maven "Maven 3.8.1"
     }
     
     stages {
@@ -19,8 +18,21 @@ agent {
                 sh "mvn --version" 
             }
         }
-        
-        stage('Stage 1') {
+      stage('SonarQube Scanner') {
+         environment {
+            SCANNER_HOME = tool 'SonarQube-4.6.2'
+            ORGANIZATION = "maven_pipeline"
+            PROJECT_NAME = "maven_pipeline"
+          }
+  steps {
+    withSonarQubeEnv('SonarQube') {
+        -Dsonar.java.binaries=build/classes/java/ \
+        -Dsonar.projectKey=$PROJECT_NAME \
+        -Dsonar.sources=.'''
+    }
+  }
+}
+        stage('Build') {
             steps {
                 sh 'mvn clean package'
             }
