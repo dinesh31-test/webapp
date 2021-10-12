@@ -7,7 +7,7 @@ agent {
   }
   
       tools {
-          maven "Maven 3.8.1"
+          maven "Maven 3.8.3"
     }
     
     stages {
@@ -20,7 +20,7 @@ agent {
         }
       stage('SonarQube Scanner') {
          environment {
-            SCANNER_HOME = tool 'SonarQube Scanner 4.6.2'
+            SCANNER_HOME = tool 'SonarQube Scanner 4.5'
             ORGANIZATION = "maven_pipeline"
             PROJECT_NAME = "maven_pipeline"
           }
